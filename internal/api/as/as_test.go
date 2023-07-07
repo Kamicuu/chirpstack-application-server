@@ -17,14 +17,14 @@ import (
 	"github.com/brocaar/chirpstack-api/go/v3/common"
 	gwPB "github.com/brocaar/chirpstack-api/go/v3/gw"
 	"github.com/brocaar/chirpstack-api/go/v3/ns"
-	"github.com/brocaar/chirpstack-application-server/internal/backend/networkserver"
-	nsmock "github.com/brocaar/chirpstack-application-server/internal/backend/networkserver/mock"
-	"github.com/brocaar/chirpstack-application-server/internal/codec"
-	"github.com/brocaar/chirpstack-application-server/internal/integration"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/mock"
-	"github.com/brocaar/chirpstack-application-server/internal/storage"
-	"github.com/brocaar/chirpstack-application-server/internal/test"
 	"github.com/brocaar/lorawan"
+	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
+	nsmock "github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver/mock"
+	"github.com/kamicuu/chirpstack-application-server/internal/codec"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/mock"
+	"github.com/kamicuu/chirpstack-application-server/internal/storage"
+	"github.com/kamicuu/chirpstack-application-server/internal/test"
 )
 
 type ASTestSuite struct {

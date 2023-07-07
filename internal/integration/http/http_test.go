@@ -14,8 +14,8 @@ import (
 
 	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
 	"github.com/brocaar/chirpstack-api/go/v3/common"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/marshaler"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/models"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/marshaler"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/models"
 )
 
 type testHTTPHandler struct {

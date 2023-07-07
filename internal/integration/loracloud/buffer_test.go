@@ -10,9 +10,9 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/brocaar/chirpstack-api/go/v3/gw"
-	"github.com/brocaar/chirpstack-application-server/internal/storage"
-	"github.com/brocaar/chirpstack-application-server/internal/test"
 	"github.com/brocaar/lorawan"
+	"github.com/kamicuu/chirpstack-application-server/internal/storage"
+	"github.com/kamicuu/chirpstack-application-server/internal/test"
 )
 
 func TestGeolocBuffer(t *testing.T) {

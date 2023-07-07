@@ -11,9 +11,9 @@ import (
 	log "github.com/sirupsen/logrus"
 
 	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/models"
-	"github.com/brocaar/chirpstack-application-server/internal/logging"
 	"github.com/brocaar/lorawan"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/models"
+	"github.com/kamicuu/chirpstack-application-server/internal/logging"
 )
 
 // Config contains the configuration for the MyDevices endpoint.

@@ -13,13 +13,13 @@ import (
 	"github.com/stretchr/testify/suite"
 
 	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
-	"github.com/brocaar/chirpstack-application-server/internal/config"
-	httpint "github.com/brocaar/chirpstack-application-server/internal/integration/http"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/marshaler"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/models"
-	mqttint "github.com/brocaar/chirpstack-application-server/internal/integration/mqtt"
-	"github.com/brocaar/chirpstack-application-server/internal/storage"
-	"github.com/brocaar/chirpstack-application-server/internal/test"
+	"github.com/kamicuu/chirpstack-application-server/internal/config"
+	httpint "github.com/kamicuu/chirpstack-application-server/internal/integration/http"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/marshaler"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/models"
+	mqttint "github.com/kamicuu/chirpstack-application-server/internal/integration/mqtt"
+	"github.com/kamicuu/chirpstack-application-server/internal/storage"
+	"github.com/kamicuu/chirpstack-application-server/internal/test"
 )
 
 type testHTTPHandler struct {

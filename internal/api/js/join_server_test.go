@@ -15,15 +15,15 @@ import (
 	"github.com/lib/pq/hstore"
 	"github.com/stretchr/testify/require"
 
-	"github.com/brocaar/chirpstack-application-server/internal/backend/networkserver"
-	nsmock "github.com/brocaar/chirpstack-application-server/internal/backend/networkserver/mock"
-	"github.com/brocaar/chirpstack-application-server/internal/config"
-	"github.com/brocaar/chirpstack-application-server/internal/integration"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/mock"
-	"github.com/brocaar/chirpstack-application-server/internal/storage"
-	"github.com/brocaar/chirpstack-application-server/internal/test"
 	"github.com/brocaar/lorawan"
 	"github.com/brocaar/lorawan/backend"
+	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
+	nsmock "github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver/mock"
+	"github.com/kamicuu/chirpstack-application-server/internal/config"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/mock"
+	"github.com/kamicuu/chirpstack-application-server/internal/storage"
+	"github.com/kamicuu/chirpstack-application-server/internal/test"
 )
 
 func TestJoinServerAPI(t *testing.T) {

@@ -13,13 +13,13 @@ import (
 	"golang.org/x/net/context"
 
 	"github.com/brocaar/chirpstack-api/go/v3/ns"
-	"github.com/brocaar/chirpstack-application-server/internal/backend/networkserver"
-	"github.com/brocaar/chirpstack-application-server/internal/backend/networkserver/mock"
-	"github.com/brocaar/chirpstack-application-server/internal/codec"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/models"
-	"github.com/brocaar/chirpstack-application-server/internal/storage"
-	"github.com/brocaar/chirpstack-application-server/internal/test"
 	"github.com/brocaar/lorawan"
+	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
+	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver/mock"
+	"github.com/kamicuu/chirpstack-application-server/internal/codec"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/models"
+	"github.com/kamicuu/chirpstack-application-server/internal/storage"
+	"github.com/kamicuu/chirpstack-application-server/internal/test"
 )
 
 func TestHandleDownlinkQueueItem(t *testing.T) {

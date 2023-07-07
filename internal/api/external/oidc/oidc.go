@@ -17,16 +17,16 @@ import (
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/oauth2"
 
-	"github.com/brocaar/chirpstack-application-server/internal/config"
+	"github.com/kamicuu/chirpstack-application-server/internal/config"
 )
 
 var (
-	providerURL  string
-	clientID     string
-	clientSecret string
-	redirectURL  string
-	jwtSecret    string
-	useUserInfo  bool
+	providerURL         string
+	clientID            string
+	clientSecret        string
+	redirectURL         string
+	jwtSecret           string
+	useUserInfo         bool
 	assumeEmailVerified bool
 
 	// MockGetUserUser contains a possible mocked GetUser User
@@ -270,7 +270,7 @@ func GetUser(ctx context.Context, code string, state string) (User, error) {
 		}
 	}
 
-	if (assumeEmailVerified) {
+	if assumeEmailVerified {
 		user.EmailVerified = true
 	}
 

@@ -17,11 +17,11 @@ import (
 	"github.com/brocaar/chirpstack-api/go/v3/as/integration"
 	"github.com/brocaar/chirpstack-api/go/v3/common"
 	"github.com/brocaar/chirpstack-api/go/v3/ns"
-	"github.com/brocaar/chirpstack-application-server/internal/backend/networkserver"
-	"github.com/brocaar/chirpstack-application-server/internal/backend/networkserver/mock"
-	"github.com/brocaar/chirpstack-application-server/internal/eventlog"
-	"github.com/brocaar/chirpstack-application-server/internal/storage"
 	"github.com/brocaar/lorawan"
+	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
+	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver/mock"
+	"github.com/kamicuu/chirpstack-application-server/internal/eventlog"
+	"github.com/kamicuu/chirpstack-application-server/internal/storage"
 )
 
 func (ts *APITestSuite) TestDevice() {

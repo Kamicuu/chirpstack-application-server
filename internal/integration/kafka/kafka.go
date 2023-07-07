@@ -17,11 +17,11 @@ import (
 	"github.com/segmentio/kafka-go/sasl/scram"
 
 	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
-	"github.com/brocaar/chirpstack-application-server/internal/config"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/marshaler"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/models"
-	"github.com/brocaar/chirpstack-application-server/internal/logging"
 	"github.com/brocaar/lorawan"
+	"github.com/kamicuu/chirpstack-application-server/internal/config"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/marshaler"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/models"
+	"github.com/kamicuu/chirpstack-application-server/internal/logging"
 )
 
 // Integration implements an Kafka integration.

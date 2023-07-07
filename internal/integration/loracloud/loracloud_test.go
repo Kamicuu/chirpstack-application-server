@@ -18,15 +18,15 @@ import (
 	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
 	"github.com/brocaar/chirpstack-api/go/v3/common"
 	"github.com/brocaar/chirpstack-api/go/v3/gw"
-	"github.com/brocaar/chirpstack-application-server/internal/backend/networkserver"
-	nsmock "github.com/brocaar/chirpstack-application-server/internal/backend/networkserver/mock"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/loracloud/client/das"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/loracloud/client/geolocation"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/loracloud/client/helpers"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/mock"
-	"github.com/brocaar/chirpstack-application-server/internal/storage"
-	"github.com/brocaar/chirpstack-application-server/internal/test"
 	"github.com/brocaar/lorawan"
+	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
+	nsmock "github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver/mock"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/loracloud/client/das"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/loracloud/client/geolocation"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/loracloud/client/helpers"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/mock"
+	"github.com/kamicuu/chirpstack-application-server/internal/storage"
+	"github.com/kamicuu/chirpstack-application-server/internal/test"
 )
 
 type LoRaCloudTestSuite struct {

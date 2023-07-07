@@ -11,11 +11,11 @@ import (
 	"golang.org/x/net/context"
 
 	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
-	"github.com/brocaar/chirpstack-application-server/internal/codec"
-	"github.com/brocaar/chirpstack-application-server/internal/integration"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/models"
-	"github.com/brocaar/chirpstack-application-server/internal/logging"
-	"github.com/brocaar/chirpstack-application-server/internal/storage"
+	"github.com/kamicuu/chirpstack-application-server/internal/codec"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/models"
+	"github.com/kamicuu/chirpstack-application-server/internal/logging"
+	"github.com/kamicuu/chirpstack-application-server/internal/storage"
 )
 
 // HandleDataDownPayloads handles received downlink payloads to be emitted to the

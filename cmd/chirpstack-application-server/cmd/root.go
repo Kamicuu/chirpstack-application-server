@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/brocaar/chirpstack-application-server/internal/config"
 	"github.com/go-redis/redis/v8"
+	"github.com/kamicuu/chirpstack-application-server/internal/config"
 	"github.com/spf13/viper"
 
 	log "github.com/sirupsen/logrus"

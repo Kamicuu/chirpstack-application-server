@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/brocaar/chirpstack-application-server/internal/logging"
+	"github.com/kamicuu/chirpstack-application-server/internal/logging"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 )

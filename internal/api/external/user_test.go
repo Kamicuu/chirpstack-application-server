@@ -10,9 +10,9 @@ import (
 	"google.golang.org/grpc/codes"
 
 	pb "github.com/brocaar/chirpstack-api/go/v3/as/external/api"
-	"github.com/brocaar/chirpstack-application-server/internal/backend/networkserver"
-	"github.com/brocaar/chirpstack-application-server/internal/backend/networkserver/mock"
-	"github.com/brocaar/chirpstack-application-server/internal/storage"
+	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
+	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver/mock"
+	"github.com/kamicuu/chirpstack-application-server/internal/storage"
 )
 
 func (ts *APITestSuite) TestUser() {
@@ -168,20 +168,20 @@ func (ts *APITestSuite) TestUser() {
 			})
 
 			t.Run("Remote other", func(t *testing.T) {
-			assert := require.New(t)
+				assert := require.New(t)
 
-			_, err := api.Delete(ctx, &pb.DeleteUserRequest{
-				Id: createResp.Id,
-			})
-			assert.NoError(err)
+				_, err := api.Delete(ctx, &pb.DeleteUserRequest{
+					Id: createResp.Id,
+				})
+				assert.NoError(err)
 
-			users, err := api.List(ctx, &pb.ListUserRequest{
-				Limit:  10,
-				Offset: 0,
-			})
-			assert.NoError(err)
-			assert.Len(users.Result, 3)
-			assert.EqualValues(3, users.TotalCount)
+				users, err := api.List(ctx, &pb.ListUserRequest{
+					Limit:  10,
+					Offset: 0,
+				})
+				assert.NoError(err)
+				assert.Len(users.Result, 3)
+				assert.EqualValues(3, users.TotalCount)
 			})
 		})
 	})

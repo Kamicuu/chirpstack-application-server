@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/brocaar/chirpstack-application-server/internal/logging"
 	"github.com/go-redis/redis/v8"
+	"github.com/kamicuu/chirpstack-application-server/internal/logging"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 )

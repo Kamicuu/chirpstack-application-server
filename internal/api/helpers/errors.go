@@ -8,9 +8,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/brocaar/chirpstack-application-server/internal/integration/http"
-	"github.com/brocaar/chirpstack-application-server/internal/integration/influxdb"
-	"github.com/brocaar/chirpstack-application-server/internal/storage"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/http"
+	"github.com/kamicuu/chirpstack-application-server/internal/integration/influxdb"
+	"github.com/kamicuu/chirpstack-application-server/internal/storage"
 )
 
 var errToCode = map[error]codes.Code{
@@ -48,7 +48,7 @@ func ErrToRPCError(err error) error {
 	}
 
 	// Some error values (error returned by Otto) can not be hashed:
-	// https://github.com/brocaar/chirpstack-application-server/issues/631
+	// https://github.com/kamicuu/chirpstack-application-server/issues/631
 	k := reflect.TypeOf(cause).Kind()
 	if k == reflect.Slice {
 		return grpc.Errorf(codes.Unknown, cause.Error())
