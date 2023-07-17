@@ -1,10 +1,14 @@
 .PHONY: build clean test ui-requirements serve statics
 VERSION := $(shell git describe --always |sed -e "s/^v//")
-API_VERSION := $(shell go list -m -f '{{ .Version }}' github.com/brocaar/chirpstack-api/go/v3 | awk '{n=split($$0, a, "-"); print a[n]}')
+API_VERSION := $(shell go list -m -f '{{ .Version }}' github.com/kamicuu/chirpstack-api/go/v3 | awk '{n=split($$0, a, "-"); print a[n]}')
 
 build: ui/build static/swagger/api.swagger.json
 	mkdir -p build
 	go build $(GO_EXTRA_BUILD_ARGS) -ldflags "-s -w -X main.version=$(VERSION)" -o build/chirpstack-application-server cmd/chirpstack-application-server/main.go
+
+build-debug: ui/build static/swagger/api.swagger.json
+	mkdir -p build
+	go build $(GO_EXTRA_BUILD_ARGS) -gcflags "all=-N -l" -o build/chirpstack-application-server cmd/chirpstack-application-server/main.go
 
 clean:
 	@echo "Cleaning up workspace"
@@ -36,8 +40,8 @@ snapshot: statics
 
 proto:
 	@rm -rf /tmp/chirpstack-api
-	@git clone https://github.com/brocaar/chirpstack-api.git /tmp/chirpstack-api
-	@git --git-dir=/tmp/chirpstack-api/.git --work-tree=/tmp/chirpstack-api checkout $(API_VERSION)
+	@git clone https://github.com/kamicuu/chirpstack-api.git /tmp/chirpstack-api
+	@git --git-dir=/tmp/chirpstack-api/.git --work-tree=/tmp/chirpstack-api checkout origin/master
 	@go generate internal/integration/loracloud/frame_rx_info.go
 
 statics: ui/build static/swagger/api.swagger.json
@@ -50,8 +54,8 @@ ui/build:
 static/swagger/api.swagger.json:
 	@echo "Fetching Swagger definitions and generate combined Swagger JSON"
 	@rm -rf /tmp/chirpstack-api
-	@git clone https://github.com/brocaar/chirpstack-api.git /tmp/chirpstack-api
-	@git --git-dir=/tmp/chirpstack-api/.git --work-tree=/tmp/chirpstack-api checkout $(API_VERSION)
+	@git clone https://github.com/kamicuu/chirpstack-api.git /tmp/chirpstack-api
+	@git --git-dir=/tmp/chirpstack-api/.git --work-tree=/tmp/chirpstack-api checkout origin/master
 	@mkdir -p static/swagger
 	@cp /tmp/chirpstack-api/swagger/as/external/api/*.json static/swagger
 	@GOOS="" GOARCH="" go run internal/tools/swagger/main.go /tmp/chirpstack-api/swagger/as/external/api > static/swagger/api.swagger.json

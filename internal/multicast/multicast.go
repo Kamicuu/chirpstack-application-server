@@ -8,9 +8,9 @@ import (
 	"github.com/jmoiron/sqlx"
 	"github.com/pkg/errors"
 
-	api "github.com/brocaar/chirpstack-api/go/v3/as/external/api"
-	"github.com/brocaar/chirpstack-api/go/v3/ns"
 	"github.com/brocaar/lorawan"
+	api "github.com/kamicuu/chirpstack-api/go/v3/as/external/api"
+	"github.com/kamicuu/chirpstack-api/go/v3/ns"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
 	"github.com/kamicuu/chirpstack-application-server/internal/storage"
 )

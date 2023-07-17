@@ -9,8 +9,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/external/api"
-	"github.com/brocaar/chirpstack-api/go/v3/ns"
+	pb "github.com/kamicuu/chirpstack-api/go/v3/as/external/api"
+	"github.com/kamicuu/chirpstack-api/go/v3/ns"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver/mock"
 	"github.com/kamicuu/chirpstack-application-server/internal/storage"

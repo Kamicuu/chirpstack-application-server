@@ -13,7 +13,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
+	pb "github.com/kamicuu/chirpstack-api/go/v3/as/integration"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver/mock"
 	httpint "github.com/kamicuu/chirpstack-application-server/internal/integration/http"

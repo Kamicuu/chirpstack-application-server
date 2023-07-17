@@ -21,7 +21,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/external/api"
+	pb "github.com/kamicuu/chirpstack-api/go/v3/as/external/api"
 	"github.com/kamicuu/chirpstack-application-server/internal/api/external/auth"
 	"github.com/kamicuu/chirpstack-application-server/internal/api/external/oidc"
 	"github.com/kamicuu/chirpstack-application-server/internal/api/helpers"

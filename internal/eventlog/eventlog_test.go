@@ -11,8 +11,8 @@ import (
 	"github.com/golang/protobuf/proto"
 	"github.com/stretchr/testify/require"
 
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
 	"github.com/brocaar/lorawan"
+	pb "github.com/kamicuu/chirpstack-api/go/v3/as/integration"
 	"github.com/kamicuu/chirpstack-application-server/internal/config"
 	"github.com/kamicuu/chirpstack-application-server/internal/storage"
 	"github.com/kamicuu/chirpstack-application-server/internal/test"

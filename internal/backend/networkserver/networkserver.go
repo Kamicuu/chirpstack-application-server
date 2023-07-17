@@ -15,7 +15,7 @@ import (
 	"google.golang.org/grpc/balancer/roundrobin"
 	"google.golang.org/grpc/credentials"
 
-	"github.com/brocaar/chirpstack-api/go/v3/ns"
+	"github.com/kamicuu/chirpstack-api/go/v3/ns"
 	"github.com/kamicuu/chirpstack-application-server/internal/config"
 	"github.com/kamicuu/chirpstack-application-server/internal/logging"
 )

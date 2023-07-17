@@ -3,7 +3,7 @@ package mock
 import (
 	"context"
 
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
+	pb "github.com/kamicuu/chirpstack-api/go/v3/as/integration"
 	"github.com/kamicuu/chirpstack-application-server/internal/integration/models"
 )
 

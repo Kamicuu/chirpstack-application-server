@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/brocaar/chirpstack-api/go/v3/as/integration"
+	"github.com/kamicuu/chirpstack-api/go/v3/as/integration"
 	"github.com/kamicuu/chirpstack-application-server/internal/integration/models"
 	"github.com/pkg/errors"
 )

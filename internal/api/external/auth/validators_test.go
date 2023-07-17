@@ -8,9 +8,10 @@ import (
 	"github.com/stretchr/testify/suite"
 	"golang.org/x/net/context"
 
+	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver/mock"
+
 	"github.com/brocaar/lorawan"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
-	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver/mock"
 	"github.com/kamicuu/chirpstack-application-server/internal/storage"
 	"github.com/kamicuu/chirpstack-application-server/internal/test"
 )

@@ -13,8 +13,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
-	"github.com/brocaar/chirpstack-api/go/v3/ns"
 	"github.com/brocaar/lorawan"
+	"github.com/kamicuu/chirpstack-api/go/v3/ns"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
 	"github.com/kamicuu/chirpstack-application-server/internal/config"
 	"github.com/kamicuu/chirpstack-application-server/internal/logging"

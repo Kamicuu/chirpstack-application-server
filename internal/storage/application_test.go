@@ -8,7 +8,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 
-	"github.com/brocaar/chirpstack-api/go/v3/ns"
+	"github.com/kamicuu/chirpstack-api/go/v3/ns"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver/mock"
 	"github.com/kamicuu/chirpstack-application-server/internal/test"

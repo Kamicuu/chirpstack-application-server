@@ -14,10 +14,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/external/api"
-	"github.com/brocaar/chirpstack-api/go/v3/common"
-	"github.com/brocaar/chirpstack-api/go/v3/ns"
 	"github.com/brocaar/lorawan"
+	pb "github.com/kamicuu/chirpstack-api/go/v3/as/external/api"
+	"github.com/kamicuu/chirpstack-api/go/v3/common"
+	"github.com/kamicuu/chirpstack-api/go/v3/ns"
 	"github.com/kamicuu/chirpstack-application-server/internal/api/external/auth"
 	"github.com/kamicuu/chirpstack-application-server/internal/api/helpers"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"

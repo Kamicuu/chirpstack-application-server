@@ -12,10 +12,10 @@ import (
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/brocaar/chirpstack-api/go/v3/as"
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
-	"github.com/brocaar/chirpstack-api/go/v3/common"
 	"github.com/brocaar/lorawan"
+	"github.com/kamicuu/chirpstack-api/go/v3/as"
+	pb "github.com/kamicuu/chirpstack-api/go/v3/as/integration"
+	"github.com/kamicuu/chirpstack-api/go/v3/common"
 	"github.com/kamicuu/chirpstack-application-server/internal/codec"
 	"github.com/kamicuu/chirpstack-application-server/internal/config"
 	"github.com/kamicuu/chirpstack-application-server/internal/integration"

@@ -11,10 +11,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/external/api"
-	"github.com/brocaar/chirpstack-api/go/v3/common"
-	"github.com/brocaar/chirpstack-api/go/v3/ns"
 	"github.com/brocaar/lorawan"
+	pb "github.com/kamicuu/chirpstack-api/go/v3/as/external/api"
+	"github.com/kamicuu/chirpstack-api/go/v3/common"
+	"github.com/kamicuu/chirpstack-api/go/v3/ns"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver/mock"
 	"github.com/kamicuu/chirpstack-application-server/internal/storage"
@@ -255,8 +255,8 @@ func (ts *APITestSuite) TestGateway() {
 			assert := require.New(t)
 			updateReq := pb.UpdateGatewayRequest{
 				Gateway: &pb.Gateway{
-					Id:   "0807060504030201",
-					Name: "test-gateway-updated",
+					Id:          "0807060504030201",
+					Name:        "test-gateway-updated",
 					Description: "test gateway updated	",
 					Location: &common.Location{
 						Latitude:  2.1234,
@@ -289,8 +289,8 @@ func (ts *APITestSuite) TestGateway() {
 			assert := require.New(t)
 			updateReq := pb.UpdateGatewayRequest{
 				Gateway: &pb.Gateway{
-					Id:   "0807060504030201",
-					Name: "test-gateway-updated",
+					Id:          "0807060504030201",
+					Name:        "test-gateway-updated",
 					Description: "test gateway updated	",
 					Location: &common.Location{
 						Latitude:  2.1234,

@@ -6,7 +6,7 @@ import (
 	"github.com/golang/protobuf/ptypes/empty"
 	"google.golang.org/grpc"
 
-	"github.com/brocaar/chirpstack-api/go/v3/ns"
+	"github.com/kamicuu/chirpstack-api/go/v3/ns"
 )
 
 // Client is a test network-server client.
@@ -152,6 +152,12 @@ type Client struct {
 
 	ClearDeviceNoncesChan     chan ns.ClearDeviceNoncesRequest
 	ClearDeviceNoncesResponse empty.Empty
+
+	SetDeviceChannelsChan     chan ns.SetDeviceChannelsRequest
+	SetDeviceChannelsResponse ns.SetDeviceChannelsResponse
+
+	GetDeviceChannelsChan     chan ns.GetDeviceChannelsRequest
+	GetDeviceChannelsResponse ns.GetDeviceChannelsResponse
 }
 
 // NewClient creates a new Client.
@@ -203,6 +209,8 @@ func NewClient() *Client {
 		GetMulticastQueueItemsForMulticastGroupChan: make(chan ns.GetMulticastQueueItemsForMulticastGroupRequest, 100),
 		GenerateGatewayClientCertificateChan:        make(chan ns.GenerateGatewayClientCertificateRequest, 100),
 		ClearDeviceNoncesChan:                       make(chan ns.ClearDeviceNoncesRequest, 100),
+		GetDeviceChannelsChan:                       make(chan ns.GetDeviceChannelsRequest, 100),
+		SetDeviceChannelsChan:                       make(chan ns.SetDeviceChannelsRequest, 100),
 	}
 }
 
@@ -500,4 +508,16 @@ func (n *Client) GetADRAlgorithms(ctx context.Context, in *empty.Empty, opts ...
 func (n *Client) ClearDeviceNonces(ctx context.Context, in *ns.ClearDeviceNoncesRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	n.ClearDeviceNoncesChan <- *in
 	return &n.ClearDeviceNoncesResponse, nil
+}
+
+// GetDeviceChannels method.
+func (n *Client) GetDeviceChannels(ctx context.Context, in *ns.GetDeviceChannelsRequest, opts ...grpc.CallOption) (*ns.GetDeviceChannelsResponse, error) {
+	n.GetDeviceChannelsChan <- *in
+	return &n.GetDeviceChannelsResponse, nil
+}
+
+// SetDeviceChannels method.
+func (n *Client) SetDeviceChannels(ctx context.Context, in *ns.SetDeviceChannelsRequest, opts ...grpc.CallOption) (*ns.SetDeviceChannelsResponse, error) {
+	n.SetDeviceChannelsChan <- *in
+	return &n.SetDeviceChannelsResponse, nil
 }

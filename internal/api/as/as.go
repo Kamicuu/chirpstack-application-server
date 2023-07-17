@@ -17,9 +17,9 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
-	"github.com/brocaar/chirpstack-api/go/v3/as"
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
 	"github.com/brocaar/lorawan"
+	"github.com/kamicuu/chirpstack-api/go/v3/as"
+	pb "github.com/kamicuu/chirpstack-api/go/v3/as/integration"
 	"github.com/kamicuu/chirpstack-application-server/internal/api/helpers"
 	"github.com/kamicuu/chirpstack-application-server/internal/config"
 	"github.com/kamicuu/chirpstack-application-server/internal/events/uplink"

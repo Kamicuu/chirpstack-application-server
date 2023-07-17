@@ -17,10 +17,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/external/api"
-	"github.com/brocaar/chirpstack-api/go/v3/common"
-	"github.com/brocaar/chirpstack-api/go/v3/ns"
 	"github.com/brocaar/lorawan"
+	pb "github.com/kamicuu/chirpstack-api/go/v3/as/external/api"
+	"github.com/kamicuu/chirpstack-api/go/v3/common"
+	"github.com/kamicuu/chirpstack-api/go/v3/ns"
 	"github.com/kamicuu/chirpstack-application-server/internal/api/external/auth"
 	"github.com/kamicuu/chirpstack-application-server/internal/api/helpers"
 	"github.com/kamicuu/chirpstack-application-server/internal/backend/networkserver"
@@ -1001,6 +1001,86 @@ func (a *DeviceAPI) ClearDeviceNonces(ctx context.Context, req *pb.ClearDeviceNo
 	})
 
 	return &empty.Empty{}, nil
+}
+
+func (a *DeviceAPI) GetDeviceChannels(ctx context.Context, req *pb.GetDeviceChannelsRequest) (*pb.GetDeviceChannelsResponse, error) {
+	var eui lorawan.EUI64
+	if err := eui.UnmarshalText([]byte(req.DevEui)); err != nil {
+		return nil, grpc.Errorf(codes.InvalidArgument, err.Error())
+	}
+
+	if err := a.validator.Validate(ctx,
+		auth.ValidateNodeAccess(eui, auth.Update)); err != nil {
+		return nil, grpc.Errorf(codes.Unauthenticated, "authentication failed: %s", err)
+	}
+
+	d, err := storage.GetDevice(ctx, storage.DB(), eui, false, true)
+	if err != nil {
+		return nil, helpers.ErrToRPCError(err)
+	}
+
+	n, err := storage.GetNetworkServerForDevEUI(ctx, storage.DB(), d.DevEUI)
+	if err != nil {
+		return nil, helpers.ErrToRPCError(err)
+	}
+
+	nsClient, err := networkserver.GetPool().Get(n.Server, []byte(n.CACert), []byte(n.TLSCert), []byte(n.TLSKey))
+	if err != nil {
+		return nil, helpers.ErrToRPCError(err)
+	}
+
+	resp, _ := nsClient.GetDeviceChannels(ctx, &ns.GetDeviceChannelsRequest{
+		DevEui: d.DevEUI[:],
+	})
+
+	return &pb.GetDeviceChannelsResponse{
+		DevEui:   eui.String(),
+		Channels: resp.Channels,
+	}, nil
+}
+
+// Set enabled device channels
+func (a *DeviceAPI) SetDeviceChannels(ctx context.Context, req *pb.SetDeviceChannelsRequest) (*pb.SetDeviceChannelsResponse, error) {
+	var eui lorawan.EUI64
+	if err := eui.UnmarshalText([]byte(req.DevEui)); err != nil {
+		return nil, grpc.Errorf(codes.InvalidArgument, err.Error())
+	}
+
+	if err := a.validator.Validate(ctx,
+		auth.ValidateNodeAccess(eui, auth.Update)); err != nil {
+		return nil, grpc.Errorf(codes.Unauthenticated, "authentication failed: %s", err)
+	}
+
+	d, err := storage.GetDevice(ctx, storage.DB(), eui, false, true)
+	if err != nil {
+		return nil, helpers.ErrToRPCError(err)
+	}
+
+	n, err := storage.GetNetworkServerForDevEUI(ctx, storage.DB(), d.DevEUI)
+	if err != nil {
+		return nil, helpers.ErrToRPCError(err)
+	}
+
+	nsClient, err := networkserver.GetPool().Get(n.Server, []byte(n.CACert), []byte(n.TLSCert), []byte(n.TLSKey))
+	if err != nil {
+		return nil, helpers.ErrToRPCError(err)
+	}
+
+	//For some reasons proto only works on uint32
+	channels := make([]int32, len(req.Channels))
+	for i, val := range req.Channels {
+		channels[i] = int32(val)
+	}
+
+	resp, _ := nsClient.SetDeviceChannels(ctx, &ns.SetDeviceChannelsRequest{
+		DevEui:   d.DevEUI[:],
+		Channels: channels,
+	})
+
+	return &pb.SetDeviceChannelsResponse{
+		DevEui:   eui.String(),
+		Channels: resp.Channels,
+	}, nil
 }
 
 func (a *DeviceAPI) returnList(count int, devices []storage.DeviceListItem) (*pb.ListDeviceResponse, error) {

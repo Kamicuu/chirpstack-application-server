@@ -10,7 +10,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/net/context"
 
-	pb "github.com/brocaar/chirpstack-api/go/v3/as/integration"
+	pb "github.com/kamicuu/chirpstack-api/go/v3/as/integration"
 	"github.com/kamicuu/chirpstack-application-server/internal/codec"
 	"github.com/kamicuu/chirpstack-application-server/internal/integration"
 	"github.com/kamicuu/chirpstack-application-server/internal/integration/models"
