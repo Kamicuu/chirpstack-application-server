@@ -142,6 +142,34 @@ class DeviceStore extends EventEmitter {
     });
   }
 
+  getDeviceExtraConfigChannels(devEui, callbackFunc) {
+    this.swagger.then((client)=>{
+      client.apis.DeviceService.GetDeviceChannels({
+        dev_eui: devEui,
+      })
+      .then(checkStatus)
+      .then((resp)=>{
+        callbackFunc(resp.obj);
+      })
+      .catch(errorHandlerIgnoreNotFoundWithCallback(callbackFunc));
+    })
+  }
+
+  setDeviceExtraConfigChannels(deviceChannels, callbackFunc){
+    console.log(deviceChannels)
+    this.swagger.then((client) => {
+      client.apis.DeviceService.SetDeviceChannels({
+        "dev_eui": deviceChannels.devEUI,
+        body: deviceChannels,
+      })
+      .then(checkStatus)
+      .then((resp)=>{
+        callbackFunc(resp.obj);
+      })
+      .catch(errorHandlerIgnoreNotFoundWithCallback(callbackFunc));
+    })
+  }
+
   getActivation(devEUI, callbackFunc) {
     this.swagger.then((client) => {
       client.apis.DeviceService.GetActivation({
