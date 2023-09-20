@@ -51,7 +51,7 @@ class DeviceForm extends FormComponent {
       tab: 0,
       variables: [],
       tags: [],
-      allChannels: 8,
+      allChannels: 16,
       channelConfig: undefined,
       noChannelsSelectedError: false,
       defaultChannelsSelectedWarning: false,
@@ -168,8 +168,8 @@ class DeviceForm extends FormComponent {
     const variables = this.state.variables.map((obj, i) => <KVForm key={i} index={i} object={obj} onChange={this.onChangeKV("variables")} onDelete={this.onDeleteKV("variables")} />);
     const tags = this.state.tags.map((obj, i) => <KVForm key={i} index={i} object={obj} onChange={this.onChangeKV("tags")} onDelete={this.onDeleteKV("tags")} />);
     const channelsWarningText = `Indeksy kanałów są zahardkodowane w interfejsie graficznym! Nie sa one pobierane z chirpstacka 
-    - oznacza to że niezależnie czy mamy w głównym konfigu serwera zdefiniowane 8 kanałów, 5 czy tylko domyślne 3, tutaj zawsze będziemy widzieć 8 kanałów. Dlatego w przyszłości nalezy bardzo uważać na
-     konfigurację globalną i wszelakie zmiany w postaci dodawania/usuwania kanałów w głównym konfigu serwera. Usuwając kanały lub zmieniając ich kolejność w głównym konfigu możemy doprowadzić do odcięcia urządzenia od sieci!
+    - oznacza to że niezależnie czy mamy w głównym konfigu serwera zdefiniowane 8 kanałów, 5 czy tylko domyślne 3, tutaj zawsze będziemy widzieć 16 indeksów kanałów. Dlatego w przyszłości nalezy bardzo uważać na
+     konfigurację globalną i wszelakie zmiany w postaci dodawania/usuwania kanałów w głównym konfigu serwera.
     `
     const allChannelsCheckboxes = [];
     for(let i=0; i<this.state.allChannels; i++){
